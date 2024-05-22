@@ -1,0 +1,28 @@
+###
+POST http://localhost:3003/api/v1/users HTTP/1.1
+content-type: application/json
+
+{
+   "name": "miki",
+   "email" :"a@a"
+}
+
+###
+GET http://localhost:3003/api/v1/users?email=a@a HTTP/1.1
+
+
+###
+GET http://localhost:3003/api/v1/users/all-users HTTP/1.1
+
+
+###
+PUT http://localhost:3003/api/v1/users?email=a@a HTTP/1.1
+content-type: application/json
+
+{
+   "isActive": true
+}
+
+###
+DELETE http://localhost:3003/api/v1/users?email=a@a HTTP/1.1
+
