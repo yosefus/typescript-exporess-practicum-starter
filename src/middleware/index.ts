@@ -7,7 +7,5 @@ export const notFoundMiddleware = (req: Request, res: Response) => {
 export const errorHandlerMiddleware = (err: any, req: Request, res: Response, next: NextFunction) => {
    console.error('main error 😪, \n' ,err?.message || err);
 
-   return res
-      .status(err.statusCode || 500)
-      .json({ message: err.msg || 'something went wrong', obj: err.obj, success: false });
+   return res.status(err.statusCode|| err.code < 600 && err.code || 500).json({ message: err.msg || 'something went wrong', obj: err.obj, success: false });
 };
