@@ -1,9 +1,9 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express, { Application } from 'express';
-import { connectToMongo } from './DL/connectToMongo';
-import { errorHandlerMiddleware, notFoundMiddleware } from './middleware';
-import mainRouter from './router';
+import { connectToMongo } from './v1/DL/connectToMongo';
+import { errorHandlerMiddleware, notFoundMiddleware } from './v1/middleware';
+import mainRouter from './v1/router';
 import cParser from 'cookie-parser';
 
 const app: Application = express();

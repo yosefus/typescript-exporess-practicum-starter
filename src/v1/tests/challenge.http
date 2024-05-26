@@ -1,0 +1,74 @@
+POST http://localhost:3003/api/v1/challenges HTTP/1.1
+Content-Type: application/json
+
+{
+   "name": "Challenge 1",
+   "startDate": "2024-06-01",
+   "endDate": "2024-06-30",
+   "coverImage": "challenge1.jpg",
+   "duration": 30,
+   "tags": ["fitness", "health"],
+   "isTemplate": false,
+   "shop": [],
+   "cards": []
+}
+
+
+### 
+GET http://localhost:3003/api/v1/challenges?name=Challenge%201 HTTP/1.1
+
+
+###
+GET http://localhost:3003/api/v1/challenges/all-challenges HTTP/1.1
+
+###
+PUT http://localhost:3003/api/v1/challenges?name=Challenge%201 HTTP/1.1
+Content-Type: application/json
+
+{
+   "isTemplate": false
+}
+
+###
+DELETE http://localhost:3003/api/v1/challenges?name=Challenge%201 HTTP/1.1
+
+
+###
+POST http://localhost:3003/api/v1/challenges/add-cards/6653028ec23a5058385edde2 HTTP/1.1
+Content-Type: application/json
+
+{
+   "cards": [
+      {
+         "day": 1,
+               "type": "question",
+               "subType": "open",
+               "title": "What is your favorite food?",
+               "content": "Long text",
+               "media": { "type": "image", "content": "image1.jpg" },
+               "currency": "USD",
+               "coins": 100
+      },
+{
+         "day": 1,
+               "type": "question",
+               "subType": "closed",
+               "title": "Do you like sports?",
+               "content": "Short text",
+               "media": { "type": "video", "content": "video1.mp4" },
+               "currency": "EUR",
+               "coins": 100
+            },
+      {
+         "day": 2,
+               "type": "question",
+               "subType": "open",
+               "title": "What is your favorite color?",
+               "content": "Short text",
+               "media": { "type": "image", "content": "image2.jpg" },
+               "currency": "USD",
+               "coins": 100
+        
+      }
+   ]
+}
