@@ -1,26 +1,26 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface User {
-   name: string;
-   email: string;
-   isActive: boolean;
-   password?: string;
-   createdAt: Date;
-   updatedAt: Date;
+  name: string;
+  email: string;
+  isActive: boolean;
+  password?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface IUser extends Document, User { }
+export interface IUser extends Document, User {}
 
 const UserSchema: Schema = new Schema(
-   {
-      name: { type: String, required: true },
-      password: { type: String , select: false},
-      email: { type: String, required: true, unique: true },
-      isActive: { type: Boolean, default: true },
-   },
-   {
-      timestamps: true
-   }
+  {
+    name: { type: String, required: true },
+    password: { type: String, select: false },
+    email: { type: String, required: true, unique: true },
+    isActive: { type: Boolean, default: true },
+  },
+  {
+    timestamps: true,
+  },
 );
 
 const UserModel = mongoose.model<IUser>('User', UserSchema);
